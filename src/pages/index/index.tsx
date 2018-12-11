@@ -1,6 +1,8 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text, Audio } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import './index.less'
+import Header from '../../components/header'
+import MusicList from '../../components/music-list'
 
 export default class Index extends Component {
 
@@ -28,11 +30,12 @@ export default class Index extends Component {
     render() {
         return (
             <View>
-                <View className='index'>
-                    <Text>Hello world!</Text>
+                <View>
+                    <Header></Header>
+                    <Text className='title'>精品歌单</Text>
                 </View>
                 <View>
-                    <Audio loop src='http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E06DCBDC9AB7C49FD713D632D313AC4858BACB8DDD29067D3C601481D36E62053BF8DFEAF74C0A5CCFADD6471160CAF3E6A&fromtag=46' />
+                    <MusicList></MusicList>
                 </View>
             </View>
         )

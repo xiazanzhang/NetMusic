@@ -23,10 +23,26 @@ class App extends Component {
             'pages/index/index'
         ],
         window: {
-            backgroundTextStyle: 'light',
-            navigationBarBackgroundColor: '#fff',
-            navigationBarTitleText: 'WeChat',
-            navigationBarTextStyle: 'black'
+            navigationStyle: "custom",
+            backgroundColor: "#000"
+        },
+        tabBar: {
+            color: "#fff",
+            borderStyle: 'black',
+            selectedColor: '#fff',
+            backgroundColor: "#000",
+            list: [{
+                "selectedIconPath": "assets/icons/icon_01.png",
+                "iconPath": "assets/icons/icon_01.png",
+                "pagePath": "pages/index/index",
+                "text": "歌单"
+            },
+            {
+                "selectedIconPath": "assets/icons/icon_01.png",
+                "iconPath": "assets/icons/icon_01.png",
+                "pagePath": "pages/index/index",
+                "text": "社区"
+            }]
         }
     }
 
