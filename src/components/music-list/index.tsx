@@ -1,14 +1,24 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components';
 
-class MusicList extends Component {
+export interface Props {
+    id: number;
+    picUrl: string;
+    name: string;
+    play: () => void;
+}
+
+class MusicList extends Component<Props> {
+    play(id: number) {
+        console.log(id)
+    }
 
     render() {
         return (
             <View className="content">
-                <View className="content-cell">
-                    <Image mode="aspectFill" src="http://p1.music.126.net/Kn40TnCtp2f3uqEVdOFc-w==/109951163710835311.jpg"></Image>
-                    <Text>忆乱世英雄 | 挥旗扬鞭 金戈铁马遍天下</Text>
+                <View className="content-cell" onClick={this.play.bind(this, this.props.id)}>
+                    <Image mode="aspectFill" src={this.props.picUrl}></Image>
+                    <Text>{this.props.name}</Text>
                 </View>
             </View>
         )
