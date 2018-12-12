@@ -4,7 +4,7 @@ class Api {
     service: Service;
 
     constructor() {
-        this.service = new Service("http://111.230.15.230:3000");
+        this.service = new Service("https://bird.ioliu.cn/v2?url=http://111.230.15.230:3000");
     }
 
     top(): any {

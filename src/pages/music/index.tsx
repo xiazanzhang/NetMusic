@@ -29,12 +29,11 @@ export default class Index extends Component<Props> {
             playlist: {
                 tracks: [{
                     name: '',
+                    id: -1,
                     al: {
-                        id: -1,
                         picUrl: ''
                     }
-                }
-                ]
+                }]
             }
         }
     }
@@ -55,13 +54,11 @@ export default class Index extends Component<Props> {
         });
     }
 
-    play(id: number) {
-        console.log(id)
-    }
-
     render() {
-        const musicList = this.state.list.playlist.tracks.map((item) => {
-            return <MusicList  key={Number(item.al.id)} id={item.al.id} name={item.name} picUrl={item.al.picUrl}></MusicList>
+        let tracks = this.state.list.playlist.tracks
+
+        const musicList = tracks.map((item) => {
+            return <MusicList key={Number(item.id)} musicId={item.id} name={item.name} picUrl={item.al.picUrl}></MusicList>
         })
 
         return (

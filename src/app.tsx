@@ -19,8 +19,10 @@ class App extends Component {
      * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
      */
     config: Config = {
+        requiredBackgroundModes: ["audio"],
         pages: [
-            'pages/index/index'
+            'pages/music/index',
+            'pages/about/index'
         ],
         window: {
             navigationStyle: "custom",
@@ -34,14 +36,14 @@ class App extends Component {
             list: [{
                 "selectedIconPath": "assets/icons/icon_01.png",
                 "iconPath": "assets/icons/icon_01.png",
-                "pagePath": "pages/index/index",
+                "pagePath": "pages/music/index",
                 "text": "歌单"
             },
             {
-                "selectedIconPath": "assets/icons/icon_01.png",
-                "iconPath": "assets/icons/icon_01.png",
-                "pagePath": "pages/index/index",
-                "text": "社区"
+                "selectedIconPath": "assets/icons/icon_02.png",
+                "iconPath": "assets/icons/icon_02.png",
+                "pagePath": "pages/about/index",
+                "text": "关于"
             }]
         }
     }

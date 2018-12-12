@@ -2,21 +2,24 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components';
 
 export interface Props {
-    id: number;
+    musicId: number;
     picUrl: string;
     name: string;
-    play: () => void;
 }
 
 class MusicList extends Component<Props> {
-    play(id: number) {
-        console.log(id)
+    play(id: number, picUrl: string, name: string) {
+        Taro.playBackgroundAudio({
+            dataUrl: "https://music.163.com/song/media/outer/url?id=" + id + ".mp3",
+            title: name,
+            coverImgUrl: picUrl
+        })
     }
 
     render() {
         return (
             <View className="content">
-                <View className="content-cell" onClick={this.play.bind(this, this.props.id)}>
+                <View className="content-cell" onClick={this.play.bind(this, this.props.musicId, this.props.picUrl, this.props.name)}>
                     <Image mode="aspectFill" src={this.props.picUrl}></Image>
                     <Text>{this.props.name}</Text>
                 </View>
