@@ -7,7 +7,21 @@ import Api from '../../service/api'
 
 export interface Props {
     title: string;
-    list: object;
+    list: PlayList;
+}
+
+export interface PlayList {
+    tracks: Tracks[]
+}
+
+export interface Tracks {
+    name: string,
+    id: number,
+    al: Al
+}
+
+export interface Al {
+    picUrl: string
 }
 
 export default class Index extends Component<Props> {
@@ -25,17 +39,6 @@ export default class Index extends Component<Props> {
 
     state = {
         title: "精品歌单",
-        list: {
-            playlist: {
-                tracks: [{
-                    name: '',
-                    id: -1,
-                    al: {
-                        picUrl: ''
-                    }
-                }]
-            }
-        }
     }
 
     numbers: Array<Number> = [...Array(100).keys()];
@@ -55,7 +58,7 @@ export default class Index extends Component<Props> {
     }
 
     render() {
-        let tracks = this.state.list.playlist.tracks
+        let tracks = this.props.list.tracks
 
         const musicList = tracks.map((item) => {
             return <MusicList key={Number(item.id)} musicId={item.id} name={item.name} picUrl={item.al.picUrl}></MusicList>

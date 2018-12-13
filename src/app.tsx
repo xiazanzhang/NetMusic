@@ -22,6 +22,7 @@ class App extends Component {
         requiredBackgroundModes: ["audio"],
         pages: [
             'pages/music/index',
+            'pages/mv/index',
             'pages/about/index'
         ],
         window: {
@@ -37,7 +38,13 @@ class App extends Component {
                 "selectedIconPath": "assets/icons/icon_01.png",
                 "iconPath": "assets/icons/icon_01.png",
                 "pagePath": "pages/music/index",
-                "text": "歌单"
+                "text": "音乐"
+            },
+            {
+                "selectedIconPath": "assets/icons/icon_01.png",
+                "iconPath": "assets/icons/icon_01.png",
+                "pagePath": "pages/mv/index",
+                "text": "视频"
             },
             {
                 "selectedIconPath": "assets/icons/icon_02.png",
