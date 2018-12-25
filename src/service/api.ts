@@ -4,13 +4,28 @@ class Api {
     service: Service;
 
     constructor() {
-        this.service = new Service("https://bird.ioliu.cn/v2?url=http://111.230.15.230:3000");
+        // this.service = new Service("https://bird.ioliu.cn/v2?url=http://111.230.15.230:3000");
+        this.service = new Service("http://111.230.15.230:3000");
     }
 
     top(): any {
         return new Promise((resolve, reject) => {
             this.service.request({
                 url: "/top/list?idx=1",
+                success: (data) => {
+                    return resolve(data)
+                },
+                fail: (res) => {
+                    return reject(res)
+                }
+            })
+        })
+    }
+
+    highquality(): any {
+        return new Promise((resolve, reject) => {
+            this.service.request({
+                url: "/top/playlist/highquality",
                 success: (data) => {
                     return resolve(data)
                 },

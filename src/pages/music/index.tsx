@@ -11,7 +11,7 @@ export interface Props {
 }
 
 export interface PlayList {
-    tracks: Tracks[]
+    tracks: Tracks
 }
 
 export interface Tracks {
@@ -39,26 +39,35 @@ export default class Index extends Component<Props> {
 
     state = {
         title: "精品歌单",
+        list: {
+            playlist: {
+                tracks: [{
+                    name: "",
+                    id: 0,
+                    al: {
+                        picUrl: ""
+                    }
+                }]
+            }
+        }
     }
 
-    numbers: Array<Number> = [...Array(100).keys()];
+    api = new Api();
 
     constructor(props) {
         super(props)
     }
 
     componentDidMount() {
-        const api = new Api();
-
-        api.top().then((result) => {
+        this.api.top().then((res) => {
             this.setState({
-                list: result
+                list: res
             })
         });
     }
 
     render() {
-        let tracks = this.props.list.tracks
+        let tracks = this.state.list.playlist.tracks
 
         const musicList = tracks.map((item) => {
             return <MusicList key={Number(item.id)} musicId={item.id} name={item.name} picUrl={item.al.picUrl}></MusicList>

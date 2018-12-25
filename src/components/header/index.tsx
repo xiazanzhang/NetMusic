@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components';
+import './index.less'
 
 class Header extends Component {
     render() {
